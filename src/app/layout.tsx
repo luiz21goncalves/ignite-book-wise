@@ -1,4 +1,7 @@
-import './globals.css'
+import { ReactNode } from "react"
+import { Nunito } from 'next/font/google'
+
+const nunito = Nunito({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Create Next App',
@@ -8,11 +11,11 @@ export const metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: ReactNode
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="pt">
+      <body className={nunito.className}>{children}</body>
     </html>
   )
 }
