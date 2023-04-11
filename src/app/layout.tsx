@@ -18,7 +18,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="pt-BR">
       <body
-        className={`${nunito.className} w-screen h-screen bg-gray-800 text-gray-100`}
+        className={`${nunito.className} w-screen h-screen bg-gray-800 text-gray-100 text-md`}
       >
         {children}
       </body>
