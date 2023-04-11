@@ -1,6 +1,8 @@
 import { Nunito_Sans as NunitoSans } from 'next/font/google'
 import { ReactNode } from 'react'
 
+import '../styles/global.css'
+
 const nunito = NunitoSans({ subsets: ['latin'], weight: ['400', '700'] })
 
 export const metadata = {
