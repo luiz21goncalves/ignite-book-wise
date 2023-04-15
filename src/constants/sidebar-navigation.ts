@@ -1,12 +1,14 @@
 import { Binoculars, ChartLineUp, User, Icon } from '@/icons'
 
+import { KEYS } from './keys'
+
 type SidebarLinks = {
   readonly Icon: Icon
   readonly href: string
   readonly label: string
 }
 
-export const SIDEBAR_NAVIGATION: Record<string, SidebarLinks> = {
+export const SIDEBAR_NAVIGATION: Record<KEYS, SidebarLinks> = {
   dashboard: {
     Icon: ChartLineUp,
     href: '/dashboard',
