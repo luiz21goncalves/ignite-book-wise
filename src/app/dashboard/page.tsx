@@ -1,5 +1,6 @@
 import { Link } from '@/components/Link'
 import { PageTitle } from '@/components/PageTitle'
+import { ROUTES } from '@/constants'
 import { CaretRight, ChartLineUp } from '@/icons'
 
 import { Comment } from './components/Comment'
@@ -26,7 +27,7 @@ export default function Dashboard() {
         <section>
           <div className="flex flex-row items-center justify-between mb-4">
             <h2 className="text-sm font-normal">Livros populares</h2>
-            <Link href="/dashboard/explore" size="sm" variant="purple">
+            <Link href={ROUTES.explore} size="sm" variant="purple">
               Ver todos <CaretRight size={16} />
             </Link>
           </div>

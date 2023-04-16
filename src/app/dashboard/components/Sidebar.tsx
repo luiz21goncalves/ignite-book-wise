@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 import logo from '@/assets/logo.svg'
 import { Link } from '@/components/Link'
-import { SIDEBAR_NAVIGATION } from '@/constants'
+import { ROUTES, SIDEBAR_NAVIGATION } from '@/constants'
 import { SignIn } from '@/icons'
 
 import { LinkNavigation } from './LinkNavigation'
@@ -25,7 +25,7 @@ export function Sidebar() {
           )}
         </nav>
 
-        <Link href="/">
+        <Link href={ROUTES.login}>
           Fazer login
           <SignIn size={20} className="text-green-100" />
         </Link>

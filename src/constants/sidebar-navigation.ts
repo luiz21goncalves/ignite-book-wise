@@ -1,6 +1,6 @@
 import { Binoculars, ChartLineUp, User, Icon } from '@/icons'
 
-import { KEYS } from './keys'
+import { ROUTES } from './routes'
 
 type SidebarLinks = {
   readonly Icon: Icon
@@ -8,20 +8,20 @@ type SidebarLinks = {
   readonly label: string
 }
 
-export const SIDEBAR_NAVIGATION: Record<KEYS, SidebarLinks> = {
+export const SIDEBAR_NAVIGATION: Record<string, SidebarLinks> = {
   dashboard: {
     Icon: ChartLineUp,
-    href: '/dashboard',
+    href: ROUTES.dashboard,
     label: 'Início',
   },
   explore: {
     Icon: Binoculars,
-    href: '/dashboard/explore',
+    href: ROUTES.explore,
     label: 'Explorar',
   },
   profile: {
     Icon: User,
-    href: '/dashboard/profile',
+    href: ROUTES.profile,
     label: 'Perfil',
   },
 }
