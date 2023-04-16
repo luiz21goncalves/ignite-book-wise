@@ -1,14 +1,15 @@
 import Image from 'next/image'
-import Link from 'next/link'
 
 import logo from '@/assets/logo.svg'
+import { Link } from '@/components/Link'
 import { SIDEBAR_NAVIGATION } from '@/constants'
+import { SignIn } from '@/icons'
 
 import { LinkNavigation } from './LinkNavigation'
 
 export function Sidebar() {
   return (
-    <aside className="w-fit h-full py-5 pl-5">
+    <aside className="w-fit h-full py-5 pl-5 sticky top-0">
       <div className="w-[232px] h-full pb-6 px-6 pt-10 flex flex-col bg-[url(/background.png)] items-center justify-between rounded-xl relative">
         <Image src={logo} alt="" width={128} height={32} />
 
@@ -24,7 +25,10 @@ export function Sidebar() {
           )}
         </nav>
 
-        <Link href="/">Fazer login</Link>
+        <Link href="/">
+          Fazer login
+          <SignIn size={20} className="text-green-100" />
+        </Link>
       </div>
     </aside>
   )
