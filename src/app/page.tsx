@@ -25,7 +25,7 @@ export default function Home() {
           <div className="w-full flex flex-col gap-4">
             <Link
               href={ROUTES.dashboard}
-              className="w-full flex items-center text-buttom-lg font-bold bg-gray-600 py-5 px-6 gap-5 rounded-lg transition-colors hover:bg-gray-500 active:bg-gray-700"
+              className="w-full flex items-center text-button-lg font-bold bg-gray-600 py-5 px-6 gap-5 rounded-lg transition-colors hover:bg-gray-500 active:bg-gray-700"
             >
               <GoogleLogo size={32} weight="bold" className="text-purple-100" />
               Entrar com Google
@@ -33,7 +33,7 @@ export default function Home() {
 
             <Link
               href={ROUTES.dashboard}
-              className="w-full flex items-center text-buttom-lg font-bold bg-gray-600 py-5 px-6 gap-5 rounded-lg transition-colors hover:bg-gray-500 active:bg-gray-700"
+              className="w-full flex items-center text-button-lg font-bold bg-gray-600 py-5 px-6 gap-5 rounded-lg transition-colors hover:bg-gray-500 active:bg-gray-700"
             >
               <GithubLogo size={32} weight="bold" className="text-purple-100" />
               Entrar com Github
@@ -41,7 +41,7 @@ export default function Home() {
 
             <Link
               href={ROUTES.dashboard}
-              className="w-full flex items-center text-buttom-lg font-bold bg-gray-600 py-5 px-6 gap-5 rounded-lg transition-colors hover:bg-gray-500 active:bg-gray-700"
+              className="w-full flex items-center text-button-lg font-bold bg-gray-600 py-5 px-6 gap-5 rounded-lg transition-colors hover:bg-gray-500 active:bg-gray-700"
             >
               <RocketLaunch
                 size={32}

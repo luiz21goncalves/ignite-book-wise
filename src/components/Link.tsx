@@ -16,7 +16,7 @@ export function Link(props: LinkProps) {
     <NextLink
       {...attrs}
       className={clsx(
-        'px-2 py-1 flex flex-row items-center rounded-lg text-buttom-md font-bold',
+        'px-2 py-1 flex flex-row items-center rounded-lg text-button-md font-bold',
         {
           'gap-3': size === 'md',
           'gap-2': size === 'sm',

@@ -14,9 +14,9 @@ module.exports = {
         lg: ['1.25rem', { lineHeight: '160%' }],
         md: ['1rem', { lineHeight: '160%' }],
         sm: ['0.875rem', { lineHeight: '160%' }],
-        'buttom-lg': ['1.125rem', { lineHeight: '160%' }],
-        'buttom-md': ['1rem', { lineHeight: '160%' }],
-        'buttom-sm': ['0.875rem', { lineHeight: '160%' }],
+        'button-lg': ['1.125rem', { lineHeight: '160%' }],
+        'button-md': ['1rem', { lineHeight: '160%' }],
+        'button-sm': ['0.875rem', { lineHeight: '160%' }],
       },
       colors: {
         green: {
