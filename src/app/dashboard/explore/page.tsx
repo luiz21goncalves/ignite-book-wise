@@ -22,12 +22,12 @@ export default function Explore() {
 
       <div className="grid grid-cols-3 gap-5 pb-12">
         <BookCard />
+        <BookCard isRead />
         <BookCard />
         <BookCard />
         <BookCard />
         <BookCard />
-        <BookCard />
-        <BookCard />
+        <BookCard isRead />
         <BookCard />
         <BookCard />
         <BookCard />
