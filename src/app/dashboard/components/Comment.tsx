@@ -21,7 +21,7 @@ export function Comment() {
 
         <div className="flex flex-col gap-5">
           <div className="flex flex-col">
-            <strong className="text-heading-sx font-bold">O Hobbit</strong>
+            <strong className="text-heading-xs font-bold">O Hobbit</strong>
             <span className="text-sm text-gray-400">J.R.R. Tolkien</span>
           </div>
 

@@ -7,7 +7,7 @@ export function TrendingBookCard() {
 
       <div className="flex flex-col justify-between">
         <div className="flex flex-col">
-          <strong className="text-heading-sx font-bold">
+          <strong className="text-heading-xs font-bold">
             A revolução dos bichos
           </strong>
           <span className="text-sm text-gray-400">George Orwell</span>
