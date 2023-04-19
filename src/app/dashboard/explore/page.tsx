@@ -8,7 +8,7 @@ import { BookCard } from './components/BookCard'
 export default function Explore() {
   return (
     <div className="w-full h-full">
-      <header className="flex flex-row items-start justify-between">
+      <header className="grid grid-cols-2 items-start justify-between">
         <PageTitle icon={Binoculars}>Explorar</PageTitle>
         <Input placeholder="Buscar livro ou autor" />
       </header>
