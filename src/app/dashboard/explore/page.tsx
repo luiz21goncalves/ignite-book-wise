@@ -20,7 +20,7 @@ export default function Explore() {
         <Tag>Fantasia</Tag>
       </div>
 
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid grid-cols-3 gap-5 pb-12">
         <BookCard />
         <BookCard />
         <BookCard />

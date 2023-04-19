@@ -11,7 +11,7 @@ export default function Dashboard() {
     <div className="w-full h-full">
       <PageTitle icon={ChartLineUp}>Início</PageTitle>
 
-      <div className="grid grid-cols-[1fr_324px] gap-16 mt-10">
+      <div className="grid grid-cols-[1fr_324px] gap-16 mt-10 pb-12">
         <section>
           <h2 className="text-sm mb-4 font-normal">Avaliações mais recentes</h2>
           <div className="flex flex-col gap-3">
