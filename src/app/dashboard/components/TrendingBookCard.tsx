@@ -1,6 +1,6 @@
 import { Rating } from '@/components/Rating'
 
-export function TrendingBooks() {
+export function TrendingBookCard() {
   return (
     <article className="flex flex-row px-5 py-4 gap-5 bg-gray-700 rounded-lg border-2 border-transparent transition-colors hover:border-gray-600">
       <div className="w-[64px] h-[94px] bg-gradient-vertical flex-shrink-0 rounded" />

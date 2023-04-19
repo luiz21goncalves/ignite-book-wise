@@ -4,7 +4,7 @@ import { ROUTES } from '@/constants'
 import { CaretRight, ChartLineUp } from '@/icons'
 
 import { Comment } from './components/Comment'
-import { TrendingBooks } from './components/TrendingBooks'
+import { TrendingBookCard } from './components/TrendingBookCard'
 
 export default function Dashboard() {
   return (
@@ -33,12 +33,12 @@ export default function Dashboard() {
           </div>
 
           <div className="flex flex-col gap-3">
-            <TrendingBooks />
-            <TrendingBooks />
-            <TrendingBooks />
-            <TrendingBooks />
-            <TrendingBooks />
-            <TrendingBooks />
+            <TrendingBookCard />
+            <TrendingBookCard />
+            <TrendingBookCard />
+            <TrendingBookCard />
+            <TrendingBookCard />
+            <TrendingBookCard />
           </div>
         </section>
       </div>
