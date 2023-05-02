@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { ROUTES } from '@/constants'
-import { GithubLogo, GoogleLogo, RocketLaunch } from '@/icons'
+import { Github, Google, RocketLaunch } from '@/icons'
 
 import logoImage from '../assets/logo.svg'
 
@@ -27,7 +27,7 @@ export default function Home() {
               href={ROUTES.dashboard}
               className="w-full flex items-center text-button-lg font-bold bg-gray-600 py-5 px-6 gap-5 rounded-lg transition-colors hover:bg-gray-500 active:bg-gray-700"
             >
-              <GoogleLogo size={32} weight="bold" className="text-purple-100" />
+              <Google />
               Entrar com Google
             </Link>
 
@@ -35,7 +35,7 @@ export default function Home() {
               href={ROUTES.dashboard}
               className="w-full flex items-center text-button-lg font-bold bg-gray-600 py-5 px-6 gap-5 rounded-lg transition-colors hover:bg-gray-500 active:bg-gray-700"
             >
-              <GithubLogo size={32} weight="bold" className="text-purple-100" />
+              <Github />
               Entrar com Github
             </Link>
 
@@ -43,11 +43,7 @@ export default function Home() {
               href={ROUTES.dashboard}
               className="w-full flex items-center text-button-lg font-bold bg-gray-600 py-5 px-6 gap-5 rounded-lg transition-colors hover:bg-gray-500 active:bg-gray-700"
             >
-              <RocketLaunch
-                size={32}
-                weight="bold"
-                className="text-purple-100"
-              />
+              <RocketLaunch size={32} className="text-purple-100" />
               Acessar como visitante
             </Link>
           </div>
