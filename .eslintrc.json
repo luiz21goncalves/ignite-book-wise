@@ -1,6 +1,6 @@
 {
-  "extends": ["next/core-web-vitals", "plugin:react-perf/recommended","@rocketseat/eslint-config/react"],
-  "plugins": ["eslint-plugin-import-helpers", "react-perf"],
+  "extends": ["next/core-web-vitals", "@rocketseat/eslint-config/react"],
+  "plugins": ["eslint-plugin-import-helpers"],
   "rules": {
     "react/self-closing-comp": "error",
     "import-helpers/order-imports": ["warn", {
