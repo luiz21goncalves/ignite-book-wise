@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@next-auth/prisma-adapter':
+    specifier: 1.0.6
+    version: 1.0.6(@prisma/client@4.13.0)(next-auth@4.22.1)
   '@phosphor-icons/react':
     specifier: 2.0.8
     version: 2.0.8(react-dom@18.2.0)(react@18.2.0)
@@ -189,6 +192,16 @@ packages:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
+
+  /@next-auth/prisma-adapter@1.0.6(@prisma/client@4.13.0)(next-auth@4.22.1):
+    resolution: {integrity: sha512-Z7agwfSZEeEcqKqrnisBun7VndRPshd6vyDsoRU68MXbkui8storkHgvN2hnNDrqr/hSCF9aRn56a1qpihaB4A==}
+    peerDependencies:
+      '@prisma/client': '>=2.26.0 || >=3'
+      next-auth: ^4
+    dependencies:
+      '@prisma/client': 4.13.0(prisma@4.13.0)
+      next-auth: 4.22.1(next@13.4.0)(react-dom@18.2.0)(react@18.2.0)
+    dev: false
 
   /@next/env@13.4.0:
     resolution: {integrity: sha512-LKofmUuxwGXk2OZJSSJ2SlJE62s6z+56aRsze7chc5TPoVouLR9liTiSWxzYuVzuxk0ui2wtIjyR2tcgS1dIyw==}
