@@ -1,3 +1,5 @@
+'use client'
+import { signIn } from 'next-auth/react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -5,6 +7,10 @@ import { ROUTES } from '@/constants'
 import { Github, Google, RocketLaunch } from '@/icons'
 
 import logoImage from '../assets/logo.svg'
+
+async function handleSignInWithGithub() {
+  await signIn('github')
+}
 
 export default function Home() {
   return (
@@ -23,21 +29,18 @@ export default function Home() {
           </div>
 
           <div className="w-full flex flex-col gap-4">
-            <Link
-              href={ROUTES.dashboard}
-              className="w-full flex items-center text-button-lg font-bold bg-gray-600 py-5 px-6 gap-5 rounded-lg transition-colors hover:bg-gray-500 active:bg-gray-700"
-            >
+            <button className="w-full flex items-center text-button-lg font-bold bg-gray-600 py-5 px-6 gap-5 rounded-lg transition-colors hover:bg-gray-500 active:bg-gray-700">
               <Google />
               Entrar com Google
-            </Link>
+            </button>
 
-            <Link
-              href={ROUTES.dashboard}
+            <button
               className="w-full flex items-center text-button-lg font-bold bg-gray-600 py-5 px-6 gap-5 rounded-lg transition-colors hover:bg-gray-500 active:bg-gray-700"
+              onClick={handleSignInWithGithub}
             >
               <Github />
               Entrar com Github
-            </Link>
+            </button>
 
             <Link
               href={ROUTES.dashboard}
