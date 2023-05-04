@@ -12,7 +12,7 @@ export default function Profile() {
 
       <div className="w-full h-full mt-10 grid grid-cols-[1fr_308px] gap-16">
         <div className="pb-12">
-          <Input />
+          <Input placeholder="Buscar livro avaliado" />
 
           <div className="flex flex-col gap-6 mt-8">
             <BookCard />
