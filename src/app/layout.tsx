@@ -2,6 +2,8 @@ import { Metadata } from 'next'
 import { Nunito_Sans as NunitoSans } from 'next/font/google'
 import { ReactNode } from 'react'
 
+import { Analytics } from '@vercel/analytics/react'
+
 import '@/styles/global.css'
 
 const nunito = NunitoSans({ subsets: ['latin'], weight: ['400', '700'] })
@@ -24,6 +26,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         className={`${nunito.className} w-screen h-screen bg-gray-800 text-gray-100 text-md`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   )
