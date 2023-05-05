@@ -3,10 +3,9 @@ import { signIn } from 'next-auth/react'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import logo from '@/assets/logo.svg'
 import { ROUTES } from '@/constants'
 import { Github, Google, RocketLaunch } from '@/icons'
-
-import logoImage from '../assets/logo.svg'
 
 async function handleSignInWithGithub() {
   await signIn('github')
@@ -15,8 +14,15 @@ async function handleSignInWithGithub() {
 export default function Home() {
   return (
     <div className="w-full h-full p-5 flex items-center justify-between gap-5">
-      <div className="max-w-[598px] w-full h-full flex items-center justify-center rounded-lg bg-[url(/cover.png)] bg-origin-border bg-cover">
-        <Image src={logoImage} alt="" />
+      <div className="max-w-[598px] w-full h-full flex items-center justify-center rounded-lg overflow-hidden relative">
+        <Image
+          src="/cover.png"
+          alt=""
+          fill={true}
+          placeholder="empty"
+          className="absolute top-0 left-0 bottom-0 right-0 -z-10 w-full h-hull object-cover"
+        />
+        <Image src={logo} alt="" width={232} height={58} />
       </div>
 
       <main className="w-full h-full flex items-center justify-center">
