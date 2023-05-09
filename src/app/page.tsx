@@ -1,10 +1,20 @@
+import { getServerSession } from 'next-auth/next'
 import Image from 'next/image'
+import { redirect } from 'next/navigation'
 
 import logo from '@/assets/logo.svg'
+import { ROUTES } from '@/constants'
 
+import { nextAuthOptions } from './api/auth/[...nextauth]/route'
 import { SignInButtons } from './SignInButtons'
 
-export default function Home() {
+export default async function Home() {
+  const session = await getServerSession(nextAuthOptions)
+
+  if (session) {
+    redirect(ROUTES.dashboard)
+  }
+
   return (
     <div className="w-full h-full p-5 flex items-center justify-between gap-5">
       <div className="max-w-[598px] w-full h-full flex items-center justify-center rounded-lg overflow-hidden relative">
