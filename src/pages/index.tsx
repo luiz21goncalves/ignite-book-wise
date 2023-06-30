@@ -1,10 +1,12 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 import { RocketLaunch } from '@phosphor-icons/react'
 
 import githubIcon from '@/assets/github-icon.png'
 import googleIcon from '@/assets/google-icon.png'
 import logo from '@/assets/logo.svg'
+import { LoginButton } from '@/components/LoginButton'
 
 export default function Home() {
   return (
@@ -30,18 +32,20 @@ export default function Home() {
           </div>
 
           <div className="flex w-full flex-col gap-4">
-            <button className="flex w-full items-center gap-5 rounded-md bg-gray-600 px-6 py-5 text-button-lg font-bold text-gray-200 transition-colors hover:bg-gray-700">
+            <LoginButton>
               <Image src={googleIcon} alt="" />
               Entrar com Google
-            </button>
-            <button className="flex w-full items-center gap-5 rounded-md bg-gray-600 px-6 py-5 text-button-lg font-bold text-gray-200 transition-colors hover:bg-gray-700">
+            </LoginButton>
+            <LoginButton>
               <Image src={githubIcon} alt="" />
               Entrar com GitHub
-            </button>
-            <button className="flex w-full items-center gap-5 rounded-md bg-gray-600 px-6 py-5 text-button-lg font-bold text-gray-200 transition-colors hover:bg-gray-700">
-              <RocketLaunch size={32} className="text-purple-100" />
-              Acessar como visitante
-            </button>
+            </LoginButton>
+            <LoginButton asChild>
+              <Link href="/dashboard">
+                <RocketLaunch size={32} className="text-purple-100" />
+                Acessar como visitante
+              </Link>
+            </LoginButton>
           </div>
         </main>
       </div>
