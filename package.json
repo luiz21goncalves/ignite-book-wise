@@ -10,6 +10,7 @@
     "lint:fix": "next lint --fix"
   },
   "dependencies": {
+    "@phosphor-icons/react": "2.0.10",
     "next": "13.4.7",
     "prettier-plugin-tailwindcss": "0.3.0",
     "react": "18.2.0",
