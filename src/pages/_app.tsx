@@ -8,7 +8,7 @@ const nunito = Nunito({ subsets: ['latin'] })
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <div className={nunito.className}>
-      <div className="w-screen h-screen bg-gray-800 text-gray-100 flex items-center justify-center">
+      <div className="flex h-screen w-screen items-center justify-center bg-gray-800 text-gray-100">
         <Component {...pageProps} />
       </div>
     </div>
