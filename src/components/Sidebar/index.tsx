@@ -1,9 +1,9 @@
 import Image from 'next/image'
-import Link from 'next/link'
 
-import { Binoculars, ChartLineUp } from '@phosphor-icons/react'
+import { Binoculars, ChartLineUp, SignIn } from '@phosphor-icons/react'
 
 import logo from '@/assets/logo.svg'
+import * as Link from '@/components/Link'
 
 import { SidebarLink } from './SidebarLink'
 
@@ -21,7 +21,10 @@ export function Sidebar() {
         </SidebarLink>
       </nav>
 
-      <Link href="/">Fazer Login</Link>
+      <Link.Root href="/">
+        Fazer Login
+        <Link.Icon icon={SignIn} color="#50B2C0" />
+      </Link.Root>
     </aside>
   )
 }
