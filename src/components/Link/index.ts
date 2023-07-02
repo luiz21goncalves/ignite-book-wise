@@ -1,2 +1,7 @@
-export { LinkIcon as Icon } from './LinkIcon'
-export { LinkRoot as Root } from './LinkRoot'
+import { LinkIcon } from './LinkIcon'
+import { LinkRoot } from './LinkRoot'
+
+export const Link = {
+  Root: LinkRoot,
+  Icon: LinkIcon,
+}

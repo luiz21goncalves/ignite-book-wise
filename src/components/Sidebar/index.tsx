@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Binoculars, ChartLineUp, SignIn } from '@phosphor-icons/react'
 
 import logo from '@/assets/logo.svg'
-import * as Link from '@/components/Link'
+import { Link } from '@/components/Link'
 
 import { SidebarLink } from './SidebarLink'
 
