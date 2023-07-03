@@ -7,7 +7,7 @@ module.exports = {
         'heading-lg': ['1.5rem', '140%'],
         'heading-md': ['1.25rem', '140%'],
         'heading-sm': ['1.125rem', '140%'],
-        'heading-sx': ['1rem', '140%'],
+        'heading-xs': ['1rem', '140%'],
         lg: ['1.25rem', '160%'],
         md: ['1rem', '160%'],
         sm: ['0.875rem', '160%'],
