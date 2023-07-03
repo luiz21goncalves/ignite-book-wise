@@ -16,7 +16,7 @@ export function Sidebar() {
         <SidebarLink href="/dashboard" icon={ChartLineUp}>
           Início
         </SidebarLink>
-        <SidebarLink href="/dashboard/explorer" icon={Binoculars}>
+        <SidebarLink href="/dashboard/explore" icon={Binoculars}>
           Explorar
         </SidebarLink>
       </nav>
