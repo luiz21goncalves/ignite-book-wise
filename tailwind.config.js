@@ -44,12 +44,6 @@ module.exports = {
           800: '#0E1116',
         },
       },
-      borderRadius: {
-        xs: '0.15625rem',
-        sm: '0.3125rem',
-        md: '0.625rem',
-        lg: '1.25rem',
-      },
       backgroundImage: {
         'gradient-vertical': `linear-gradient(180deg, #7FD1CC 0%, #9694F5 100%)`,
         'gradient-horizontal': `linear-gradient(90deg, #7FD1CC 0%, #9694F5 100%)`,
