@@ -21,14 +21,14 @@ export function Comment() {
         <Rating />
       </div>
 
-      <div className="flex gap-[1.25rem]">
+      <div className="flex gap-5">
         <Image
           src={''}
           alt=""
           className="h-[9.5rem] w-[6.75rem] flex-shrink-0 rounded bg-gradient-vertical"
         />
 
-        <div className="flex flex-col gap-[1.25rem] ">
+        <div className="flex flex-col gap-5">
           <div className="flex w-full flex-col">
             <span className="text-heading-xs font-bold">O Hobbit</span>
             <span className="text-sm text-gray-400">J.R.R. Tolkien</span>
