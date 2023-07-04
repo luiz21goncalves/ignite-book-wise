@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 import { Rating } from '../Rating'
 
-export function TrendingBooks() {
+export function TrendingBook() {
   return (
     <div className="flex gap-5 rounded-lg border-2 border-transparent bg-gray-700 px-5 py-4 transition-colors hover:border-gray-600">
       <Image

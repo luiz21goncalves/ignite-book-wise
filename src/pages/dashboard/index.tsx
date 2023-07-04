@@ -3,7 +3,7 @@ import { CaretRight, ChartLineUp } from '@phosphor-icons/react'
 import { Comment } from '@/components/Comment'
 import { DashboardLayout } from '@/components/Layouts/DashboardLayout'
 import { Link } from '@/components/Link'
-import { TrendingBooks } from '@/components/TrendingBooks'
+import { TrendingBook } from '@/components/TrendingBook'
 
 export default function Dashboard() {
   return (
@@ -28,9 +28,9 @@ export default function Dashboard() {
             </Link.Root>
           </div>
           <div className="flex flex-col gap-3">
-            <TrendingBooks />
-            <TrendingBooks />
-            <TrendingBooks />
+            <TrendingBook />
+            <TrendingBook />
+            <TrendingBook />
           </div>
         </section>
       </div>
