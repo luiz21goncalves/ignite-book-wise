@@ -7,6 +7,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { queryClient } from '@/lib/query-client'
 
 import '@/styles/global.css'
+import '@/lib/dayjs'
 
 const nunito = Nunito({ subsets: ['latin'] })
 
