@@ -1,9 +1,11 @@
+import { faker } from '@faker-js/faker'
 import { PrismaClient } from '@prisma/client'
 
 import { books } from './constants/books'
 import { categories } from './constants/categories'
 import { ratings } from './constants/ratings'
 import { users } from './constants/users'
+
 const prisma = new PrismaClient()
 
 async function main() {
@@ -64,6 +66,7 @@ async function main() {
         id: rating.id,
         rate: rating.rate,
         description: rating.description,
+        created_at: faker.date.recent(),
         user: {
           connect: { id: rating.user_id },
         },
