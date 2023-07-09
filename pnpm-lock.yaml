@@ -52,6 +52,9 @@ devDependencies:
   prettier-plugin-tailwindcss:
     specifier: 0.3.0
     version: 0.3.0(prettier@2.8.8)
+  prisma:
+    specifier: 4.16.2
+    version: 4.16.2
   tailwindcss:
     specifier: 3.3.2
     version: 3.3.2
@@ -296,6 +299,11 @@ packages:
       open: 9.1.0
       picocolors: 1.0.0
       tslib: 2.6.0
+    dev: true
+
+  /@prisma/engines@4.16.2:
+    resolution: {integrity: sha512-vx1nxVvN4QeT/cepQce68deh/Turxy5Mr+4L4zClFuK1GlxN3+ivxfuv+ej/gvidWn1cE1uAhW7ALLNlYbRUAw==}
+    requiresBuild: true
     dev: true
 
   /@radix-ui/react-compose-refs@1.0.1(@types/react@18.2.14)(react@18.2.0):
@@ -2491,6 +2499,15 @@ packages:
     resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
     engines: {node: '>=10.13.0'}
     hasBin: true
+    dev: true
+
+  /prisma@4.16.2:
+    resolution: {integrity: sha512-SYCsBvDf0/7XSJyf2cHTLjLeTLVXYfqp7pG5eEVafFLeT0u/hLFz/9W196nDRGUOo1JfPatAEb+uEnTQImQC1g==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      '@prisma/engines': 4.16.2
     dev: true
 
   /prop-types@15.8.1:
