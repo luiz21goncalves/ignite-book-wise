@@ -2,6 +2,7 @@ import Image from 'next/image'
 
 import dayjs from 'dayjs'
 
+import { useBook } from '@/queries/useBook'
 import { useUser } from '@/queries/useUser'
 import { Rating as TRating } from '@/types'
 
@@ -16,6 +17,7 @@ export function Comment(props: CommentProps) {
   const { rating } = props
 
   const { data: user } = useUser({ userId: rating.user_id })
+  const { data: book } = useBook({ bookId: rating.book_id })
 
   const relativeTime = dayjs(rating.created_at).fromNow()
   const formatterTime = dayjs(rating.created_at).format('LLLL')
@@ -39,15 +41,17 @@ export function Comment(props: CommentProps) {
 
       <div className="flex gap-5">
         <Image
-          src={''}
+          src={book?.cover_url!}
           alt=""
-          className="h-[9.5rem] w-[6.75rem] flex-shrink-0 rounded bg-gradient-vertical"
+          width={108}
+          height={152}
+          className="h-[9.5rem] w-[6.75rem] flex-shrink-0 rounded object-cover"
         />
 
         <div className="flex flex-col gap-5">
           <div className="flex w-full flex-col">
-            <span className="text-heading-xs font-bold">O Hobbit</span>
-            <span className="text-sm text-gray-400">J.R.R. Tolkien</span>
+            <span className="text-heading-xs font-bold">{book?.name}</span>
+            <span className="text-sm text-gray-400">{book?.author}</span>
           </div>
 
           <p className="text-sm text-gray-300">{rating?.description}</p>
