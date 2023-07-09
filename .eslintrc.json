@@ -1,6 +1,6 @@
 {
-  "extends": ["next/core-web-vitals", "@rocketseat/eslint-config/react"],
-  "plugins": ["eslint-plugin-import-helpers"],
+  "extends": ["next/core-web-vitals", "@rocketseat/eslint-config/react", "plugin:@tanstack/eslint-plugin-query/recommended"],
+  "plugins": ["eslint-plugin-import-helpers", "@tanstack/query"],
   "rules": {
     "react/self-closing-comp": "error",
     "import-helpers/order-imports": ["warn", {
