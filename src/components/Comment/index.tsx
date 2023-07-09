@@ -1,24 +1,40 @@
 import Image from 'next/image'
 
+import dayjs from 'dayjs'
+
+import { useUser } from '@/queries/useUser'
+import { Rating as TRating } from '@/types'
+
 import { Avatar } from '../Avatar'
 import { Rating } from '../Rating'
 
-export function Comment() {
+type CommentProps = {
+  rating: TRating
+}
+
+export function Comment(props: CommentProps) {
+  const { rating } = props
+
+  const { data: user } = useUser({ userId: rating.user_id })
+
+  const relativeTime = dayjs(rating.created_at).fromNow()
+  const formatterTime = dayjs(rating.created_at).format('LLLL')
+
   return (
     <div className="flex flex-col gap-8 rounded-lg bg-gray-700 p-6">
       <div className="flex items-start justify-between gap-4">
-        <Avatar />
+        <Avatar src={user?.avatar_url!} alt="" />
         <div className="flex w-full flex-col">
-          <span>Jaxson Dias</span>
+          <span>{user?.name}</span>
           <time
-            dateTime={new Date().toISOString()}
-            title={new Date().toUTCString()}
+            dateTime={rating.created_at.toString()}
+            title={formatterTime}
             className="text-sm text-gray-400"
           >
-            Hoje
+            {relativeTime}
           </time>
         </div>
-        <Rating />
+        <Rating rate={rating.rate} />
       </div>
 
       <div className="flex gap-5">
@@ -34,11 +50,7 @@ export function Comment() {
             <span className="text-sm text-gray-400">J.R.R. Tolkien</span>
           </div>
 
-          <p className="text-sm text-gray-300">
-            Nec tempor nunc in egestas. Euismod nisi eleifend at et in sagittis.
-            Penatibus id vestibulum imperdiet a at imperdiet lectus leo. Sit
-            porta eget nec vitae sit vulputate eget
-          </p>
+          <p className="text-sm text-gray-300">{rating?.description}</p>
         </div>
       </div>
     </div>

@@ -24,7 +24,7 @@ export default function Dashboard() {
             <h2 className="text-sm">Avaliações mais recentes</h2>
             <div className="flex flex-col gap-3">
               {mostRecentRatings?.map((rating) => {
-                return <Comment key={rating.id} />
+                return <Comment key={rating.id} rating={rating} />
               })}
             </div>
           </section>

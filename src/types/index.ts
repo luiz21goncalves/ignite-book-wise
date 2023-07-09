@@ -6,3 +6,10 @@ export type Rating = {
   book_id: string
   user_id: string
 }
+
+export type User = {
+  id: string
+  name: string
+  avatar_url: string | null
+  created_at: Date
+}
