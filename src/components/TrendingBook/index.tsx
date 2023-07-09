@@ -34,7 +34,7 @@ export function TrendingBook(props: TrendingBookProps) {
           <span className="text-sm text-gray-400">George Orwell</span>
         </div>
 
-        <Rating />
+        <Rating rate={4} />
       </div>
     </div>
   )
