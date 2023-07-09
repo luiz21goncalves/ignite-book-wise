@@ -1,10 +1,12 @@
 import type { AppProps } from 'next/app'
 import { Nunito } from 'next/font/google'
 
-import '@/styles/global.css'
 import { QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 import { queryClient } from '@/lib/query-client'
+
+import '@/styles/global.css'
 
 const nunito = Nunito({ subsets: ['latin'] })
 
@@ -16,6 +18,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </div>
       </div>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   )
 }

@@ -5,8 +5,11 @@ import { Layout } from '@/components/Layouts'
 import { Link } from '@/components/Link'
 import { Sidebar } from '@/components/Sidebar'
 import { TrendingBook } from '@/components/TrendingBook'
+import { useMostRecentRatings } from '@/queries'
 
 export default function Dashboard() {
+  const { data: mostRecentRatings } = useMostRecentRatings()
+
   return (
     <Layout.Root>
       <Sidebar />
@@ -20,11 +23,9 @@ export default function Dashboard() {
           <section className="flex flex-col gap-4">
             <h2 className="text-sm">Avaliações mais recentes</h2>
             <div className="flex flex-col gap-3">
-              <Comment />
-              <Comment />
-              <Comment />
-              <Comment />
-              <Comment />
+              {mostRecentRatings?.map((rating) => {
+                return <Comment key={rating.id} />
+              })}
             </div>
           </section>
 
