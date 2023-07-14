@@ -6,10 +6,20 @@ import { Sidebar } from '@/components/Sidebar'
 import { Tag } from '@/components/Tag'
 import { TrendingBook } from '@/components/TrendingBook'
 
-const books = Array.from({ length: 12 }).map((_, index) => {
-  const isRead = (index + 1) % 4 === 0
+const books = Array.from({ length: 12 }).map((_) => {
+  const book = {
+    id: '6de9f6b8-5ff4-4e06-b9f4-843eca462803',
+    name: 'Refatoração',
+    author: 'Martin Fowler',
+    summary:
+      'Nec tempor nunc in egestas. Euismod nisi eleifend at et in sagittis. Penatibus id vestibulum imperdiet a at imperdiet lectus leo. Sit porta eget nec vitae sit vulputate eget',
+    cover_url: '/images/books/refatoracao.png',
+    total_pages: 332,
+    rate: '4',
+    created_at: new Date(),
+  }
 
-  return { id: index, isRead }
+  return { ...book }
 })
 
 export default function Explore() {
@@ -44,8 +54,9 @@ export default function Explore() {
         </div>
 
         <div className="grid grid-cols-3 gap-5">
-          {books.map((book) => {
-            return <TrendingBook key={book.id} isRead={book.isRead} />
+          {books.map((book, index) => {
+            const isRead = (index + 1) % 4 === 0
+            return <TrendingBook key={book.id} isRead={isRead} book={book} />
           })}
         </div>
       </Layout.Content>
