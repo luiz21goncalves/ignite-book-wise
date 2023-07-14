@@ -1,14 +1,17 @@
 import Image from 'next/image'
 
+import { BookMostRecent } from '@/types'
+
 import { Rating } from '../Rating'
 
 type TrendingBookProps = {
   isRead?: boolean
   size?: 'md' | 'sm'
+  book: BookMostRecent
 }
 
 export function TrendingBook(props: TrendingBookProps) {
-  const { isRead = false, size = 'md' } = props
+  const { isRead = false, size = 'md', book } = props
 
   return (
     <div
@@ -21,20 +24,20 @@ export function TrendingBook(props: TrendingBookProps) {
         </span>
       )}
       <Image
-        src={''}
+        src={book.cover_url}
         alt=""
         className="h-24 w-16 flex-shrink-0 rounded bg-gradient-vertical"
+        width={64}
+        height={96}
       />
 
       <div className="flex flex-1 flex-col justify-between">
         <div className="flex flex-col">
-          <span className="text-heading-xs font-bold">
-            A revolução dos bichos
-          </span>
-          <span className="text-sm text-gray-400">George Orwell</span>
+          <span className="text-heading-xs font-bold">{book.name}</span>
+          <span className="text-sm text-gray-400">{book.author}</span>
         </div>
 
-        <Rating rate={4} />
+        <Rating rate={Number(book.rate)} />
       </div>
     </div>
   )

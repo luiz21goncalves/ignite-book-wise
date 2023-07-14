@@ -6,9 +6,11 @@ import { Link } from '@/components/Link'
 import { Sidebar } from '@/components/Sidebar'
 import { TrendingBook } from '@/components/TrendingBook'
 import { useMostRecentRatings } from '@/queries'
+import { useMostPopularBooks } from '@/queries/useMostPopularBooks'
 
 export default function Dashboard() {
   const { data: mostRecentRatings } = useMostRecentRatings()
+  const { data: mostPopularBooks } = useMostPopularBooks()
 
   return (
     <Layout.Root>
@@ -37,9 +39,9 @@ export default function Dashboard() {
               </Link.Root>
             </div>
             <div className="flex flex-col gap-3">
-              <TrendingBook />
-              <TrendingBook />
-              <TrendingBook />
+              {mostPopularBooks?.map((book) => {
+                return <TrendingBook key={book.id} book={book} />
+              })}
             </div>
           </section>
         </div>

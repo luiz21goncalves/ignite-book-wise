@@ -23,3 +23,5 @@ export type Book = {
   total_pages: number
   created_at: Date
 }
+
+export type BookMostRecent = Book & { rate: string }
