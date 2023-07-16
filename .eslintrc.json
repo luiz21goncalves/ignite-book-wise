@@ -1,17 +1,46 @@
 {
-  "extends": ["next/core-web-vitals", "@rocketseat/eslint-config/react", "plugin:@tanstack/eslint-plugin-query/recommended"],
-  "plugins": ["eslint-plugin-import-helpers", "@tanstack/query"],
+  "extends": [
+    "next/core-web-vitals",
+    "@rocketseat/eslint-config/react",
+    "plugin:@tanstack/eslint-plugin-query/recommended"
+  ],
+  "plugins": [
+    "eslint-plugin-import-helpers",
+    "@tanstack/query"
+  ],
   "rules": {
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ],
     "react/self-closing-comp": "error",
-    "import-helpers/order-imports": ["warn", {
-      "newlinesBetween": "always",
-      "groups": [
-        ["/^next/", "/^react/"],
-        "module",
-        "/^@\//",
-        ["parent", "sibling", "index"]
-      ],
-      "alphabetize": { "order": "asc", "ignoreCase": true }
-    }]
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        "newlinesBetween": "always",
+        "groups": [
+          [
+            "/^next/",
+            "/^react/"
+          ],
+          "module",
+          "/^@\//",
+          [
+            "parent",
+            "sibling",
+            "index"
+          ]
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "ignoreCase": true
+        }
+      }
+    ]
   }
 }
