@@ -5,6 +5,7 @@ import { Layout } from '@/components/Layouts'
 import { Sidebar } from '@/components/Sidebar'
 import { Tag } from '@/components/Tag'
 import { TrendingBook } from '@/components/TrendingBook'
+import { useCategories } from '@/queries/useCategories'
 
 const books = Array.from({ length: 12 }).map((_) => {
   const book = {
@@ -23,6 +24,8 @@ const books = Array.from({ length: 12 }).map((_) => {
 })
 
 export default function Explore() {
+  const { data } = useCategories()
+
   return (
     <Layout.Root>
       <Sidebar />
@@ -41,16 +44,18 @@ export default function Explore() {
           </Input.Root>
         </div>
 
-        <div className="flex gap-3">
+        <div className="flex flex-wrap gap-3">
           <Tag isSelected onSelect={() => {}}>
             Tudo
           </Tag>
-          <Tag isSelected={false} onSelect={() => {}}>
-            Computação
-          </Tag>
-          <Tag isSelected={false} onSelect={() => {}}>
-            Educação
-          </Tag>
+
+          {data?.map((tag) => {
+            return (
+              <Tag key={tag.id} isSelected={false} onSelect={() => {}}>
+                {tag.name}
+              </Tag>
+            )
+          })}
         </div>
 
         <div className="grid grid-cols-3 gap-5">

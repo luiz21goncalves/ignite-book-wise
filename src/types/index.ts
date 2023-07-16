@@ -25,3 +25,8 @@ export type Book = {
 }
 
 export type BookMostRecent = Book & { rate: string }
+
+export type Category = {
+  id: string
+  name: string
+}
