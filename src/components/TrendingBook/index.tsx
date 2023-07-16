@@ -1,17 +1,20 @@
 import Image from 'next/image'
 
-import { BookMostRecent } from '@/types'
+import { useRating } from '@/queries/useRating'
+import { Book } from '@/types'
 
 import { Rating } from '../Rating'
 
 type TrendingBookProps = {
   isRead?: boolean
   size?: 'md' | 'sm'
-  book: BookMostRecent
+  book: Book
 }
 
 export function TrendingBook(props: TrendingBookProps) {
   const { isRead = false, size = 'md', book } = props
+
+  const { data: rating } = useRating({ bookId: book.id })
 
   return (
     <div
@@ -37,7 +40,7 @@ export function TrendingBook(props: TrendingBookProps) {
           <span className="text-sm text-gray-400">{book.author}</span>
         </div>
 
-        <Rating rate={Number(book.rate)} />
+        <Rating rate={rating?.rate ?? 0} />
       </div>
     </div>
   )

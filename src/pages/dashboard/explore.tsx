@@ -81,13 +81,7 @@ export default function Explore() {
 
         <div className="grid grid-cols-3 gap-5">
           {books?.map((book) => {
-            return (
-              <TrendingBook
-                key={book.id}
-                isRead={false}
-                book={{ ...book, rate: '4' }}
-              />
-            )
+            return <TrendingBook key={book.id} isRead={false} book={book} />
           })}
         </div>
       </Layout.Content>
