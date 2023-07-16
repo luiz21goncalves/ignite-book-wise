@@ -1,3 +1,5 @@
+import { ChangeEvent, useState } from 'react'
+
 import { Binoculars, MagnifyingGlass } from '@phosphor-icons/react'
 
 import { Input } from '@/components/Input'
@@ -6,25 +8,29 @@ import { Sidebar } from '@/components/Sidebar'
 import { Tag } from '@/components/Tag'
 import { TrendingBook } from '@/components/TrendingBook'
 import { useCategories } from '@/queries/useCategories'
-
-const books = Array.from({ length: 12 }).map((_) => {
-  const book = {
-    id: '6de9f6b8-5ff4-4e06-b9f4-843eca462803',
-    name: 'Refatoração',
-    author: 'Martin Fowler',
-    summary:
-      'Nec tempor nunc in egestas. Euismod nisi eleifend at et in sagittis. Penatibus id vestibulum imperdiet a at imperdiet lectus leo. Sit porta eget nec vitae sit vulputate eget',
-    cover_url: '/images/books/refatoracao.png',
-    total_pages: 332,
-    rate: '4',
-    created_at: new Date(),
-  }
-
-  return { ...book }
-})
+import { useFilteredBooks } from '@/queries/useFilteredBooks'
 
 export default function Explore() {
-  const { data } = useCategories()
+  const [selectedCategoryId, setSelectedCategoryId] = useState<string | null>(
+    null,
+  )
+  const [query, setQuery] = useState('')
+
+  const { data: categories } = useCategories()
+  const { data: books } = useFilteredBooks({
+    category: selectedCategoryId,
+    q: query,
+  })
+
+  function handleSelectAllTags() {
+    setSelectedCategoryId(null)
+  }
+
+  function handleChangeQueryValue(event: ChangeEvent<HTMLInputElement>) {
+    const value = event.target.value
+
+    setQuery(value)
+  }
 
   return (
     <Layout.Root>
@@ -37,7 +43,11 @@ export default function Explore() {
           </h1>
 
           <Input.Root>
-            <Input.Field placeholder="Buscar livro ou autor" />
+            <Input.Field
+              placeholder="Buscar livro ou autor"
+              value={query}
+              onChange={handleChangeQueryValue}
+            />
             <Input.Icon>
               <MagnifyingGlass weight="bold" />
             </Input.Icon>
@@ -45,23 +55,39 @@ export default function Explore() {
         </div>
 
         <div className="flex flex-wrap gap-3">
-          <Tag isSelected onSelect={() => {}}>
+          <Tag
+            isSelected={selectedCategoryId === null}
+            onSelect={handleSelectAllTags}
+          >
             Tudo
           </Tag>
 
-          {data?.map((tag) => {
+          {categories?.map((category) => {
+            function handleSelect() {
+              setSelectedCategoryId(category.id)
+            }
+
             return (
-              <Tag key={tag.id} isSelected={false} onSelect={() => {}}>
-                {tag.name}
+              <Tag
+                key={category.id}
+                isSelected={selectedCategoryId === category.id}
+                onSelect={handleSelect}
+              >
+                {category.name}
               </Tag>
             )
           })}
         </div>
 
         <div className="grid grid-cols-3 gap-5">
-          {books.map((book, index) => {
-            const isRead = (index + 1) % 4 === 0
-            return <TrendingBook key={book.id} isRead={isRead} book={book} />
+          {books?.map((book) => {
+            return (
+              <TrendingBook
+                key={book.id}
+                isRead={false}
+                book={{ ...book, rate: '4' }}
+              />
+            )
           })}
         </div>
       </Layout.Content>
