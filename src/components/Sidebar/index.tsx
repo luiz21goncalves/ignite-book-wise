@@ -1,13 +1,22 @@
+import { useSession } from 'next-auth/react'
 import Image from 'next/image'
 
-import { Binoculars, ChartLineUp, SignIn } from '@phosphor-icons/react'
+import { Binoculars, ChartLineUp } from '@phosphor-icons/react'
 
 import logo from '@/assets/logo.svg'
-import { Link } from '@/components/Link'
 
 import { SidebarLink } from './SidebarLink'
+import { SidebarSignInLink } from './SidebarSignInLink'
+import { SidebarSignOutLink } from './SidebarSignOutLink'
 
 export function Sidebar() {
+  const { data, status } = useSession()
+
+  const hasAuthenticated = status === 'authenticated'
+
+  const avatarUrl = data?.user?.image!
+  const name = data?.user?.name?.split(' ')[0]!
+
   return (
     <aside className="sticky top-0 z-20 flex h-full w-[14.5rem] flex-col items-center justify-between rounded-xl bg-[url('/sidebar-background.png')] pb-6 pt-10">
       <Image src={logo} alt="" width={128} height={32} />
@@ -20,11 +29,11 @@ export function Sidebar() {
           Explorar
         </SidebarLink>
       </nav>
-
-      <Link.Root href="/">
-        Fazer Login
-        <Link.Icon icon={SignIn} color="#50B2C0" />
-      </Link.Root>
+      {hasAuthenticated ? (
+        <SidebarSignOutLink avatarUrl={avatarUrl} name={name} />
+      ) : (
+        <SidebarSignInLink />
+      )}
     </aside>
   )
 }
