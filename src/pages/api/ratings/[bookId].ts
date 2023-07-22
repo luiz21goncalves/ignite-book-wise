@@ -29,7 +29,9 @@ export default async function handler(
     `
     const rating = result[0]
 
-    return res.status(200).json({ rating })
+    return res
+      .status(200)
+      .json({ rating: { ...rating, rate: Number(rating.rate) } })
   }
 
   return res.status(404)
