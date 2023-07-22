@@ -1,3 +1,4 @@
+import { SessionProvider } from 'next-auth/react'
 import type { AppProps } from 'next/app'
 import { Nunito } from 'next/font/google'
 
@@ -11,14 +12,19 @@ import '@/lib/dayjs'
 
 const nunito = Nunito({ subsets: ['latin'] })
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
-      <div className={nunito.className}>
-        <div className="flex h-screen w-screen items-center justify-center bg-gray-800 text-gray-100">
-          <Component {...pageProps} />
+      <SessionProvider session={session}>
+        <div className={nunito.className}>
+          <div className="flex h-screen w-screen items-center justify-center bg-gray-800 text-gray-100">
+            <Component {...pageProps} />
+          </div>
         </div>
-      </div>
+      </SessionProvider>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   )
