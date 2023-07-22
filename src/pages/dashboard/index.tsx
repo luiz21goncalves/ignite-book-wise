@@ -21,7 +21,7 @@ export default function Dashboard() {
           Inicio
         </h1>
 
-        <div className="grid w-full grid-cols-[1fr_20.25rem] items-start gap-16">
+        <div className="grid w-full grid-cols-[1fr_20.25rem] items-start gap-16 pb-5">
           <section className="flex flex-col gap-4">
             <h2 className="text-sm">Avaliações mais recentes</h2>
             <div className="flex flex-col gap-3">

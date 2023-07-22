@@ -79,7 +79,7 @@ export default function Explore() {
           })}
         </div>
 
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-3 gap-5 pb-5">
           {books?.map((book) => {
             return <TrendingBook key={book.id} isRead={false} book={book} />
           })}
