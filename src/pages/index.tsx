@@ -1,5 +1,8 @@
+import { signIn, useSession } from 'next-auth/react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
 import { RocketLaunch } from '@phosphor-icons/react'
 
@@ -9,6 +12,25 @@ import logo from '@/assets/logo.svg'
 import { LoginButton } from '@/components/LoginButton'
 
 export default function Home() {
+  const { status } = useSession()
+  const router = useRouter()
+
+  function handleGoogleSignIn() {
+    signIn('google')
+  }
+
+  function handleGithubSignIn() {
+    signIn('github')
+  }
+
+  useEffect(() => {
+    const isAuthenticated = status === 'authenticated'
+
+    if (isAuthenticated) {
+      router.push('/dashboard')
+    }
+  }, [status, router])
+
   return (
     <div className="flex h-full w-full items-center justify-between gap-5 p-5">
       <div className="relative flex h-full w-[37.375rem] flex-shrink-0 items-center justify-center overflow-hidden rounded-md">
@@ -32,11 +54,11 @@ export default function Home() {
           </div>
 
           <div className="flex w-full flex-col gap-4">
-            <LoginButton>
+            <LoginButton onClick={handleGoogleSignIn}>
               <Image src={googleIcon} alt="" />
               Entrar com Google
             </LoginButton>
-            <LoginButton>
+            <LoginButton onClick={handleGithubSignIn}>
               <Image src={githubIcon} alt="" />
               Entrar com GitHub
             </LoginButton>
