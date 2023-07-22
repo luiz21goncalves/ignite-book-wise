@@ -3,8 +3,10 @@ import GithubProvider from 'next-auth/providers/github'
 import GoogleProvider from 'next-auth/providers/google'
 
 import { ENV } from '@/env/index.mjs'
+import { PrismaAdapter } from '@/lib/auth/prisma-adapter'
 
 export const authOptions: AuthOptions = {
+  adapter: PrismaAdapter(),
   providers: [
     GithubProvider({
       clientId: ENV.GITHUB_ID,
