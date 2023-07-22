@@ -2,8 +2,7 @@ import Image from 'next/image'
 
 import dayjs from 'dayjs'
 
-import { useBook } from '@/queries/useBook'
-import { useUser } from '@/queries/useUser'
+import { useBook, useUser } from '@/queries'
 import { Rating as TRating } from '@/types'
 
 import { Avatar } from '../Avatar'

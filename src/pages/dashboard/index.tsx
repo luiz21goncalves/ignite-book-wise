@@ -5,8 +5,7 @@ import { Layout } from '@/components/Layouts'
 import { Link } from '@/components/Link'
 import { Sidebar } from '@/components/Sidebar'
 import { TrendingBook } from '@/components/TrendingBook'
-import { useMostRecentRatings } from '@/queries'
-import { useMostPopularBooks } from '@/queries/useMostPopularBooks'
+import { useMostRecentRatings, useMostPopularBooks } from '@/queries'
 
 export default function Dashboard() {
   const { data: mostRecentRatings } = useMostRecentRatings()
@@ -34,7 +33,7 @@ export default function Dashboard() {
           <section className="flex flex-col gap-4">
             <div className="flex items-center justify-between">
               <h2 className="text-sm">Livros populares</h2>
-              <Link.Root href="#" size="sm" variant="purple">
+              <Link.Root href="/dashboard/explore" size="sm" variant="purple">
                 Ver todos <Link.Icon icon={CaretRight} />
               </Link.Root>
             </div>

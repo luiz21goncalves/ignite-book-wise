@@ -7,8 +7,7 @@ import { Layout } from '@/components/Layouts'
 import { Sidebar } from '@/components/Sidebar'
 import { Tag } from '@/components/Tag'
 import { TrendingBook } from '@/components/TrendingBook'
-import { useCategories } from '@/queries/useCategories'
-import { useFilteredBooks } from '@/queries/useFilteredBooks'
+import { useCategories, useFilteredBooks } from '@/queries'
 
 export default function Explore() {
   const [selectedCategoryId, setSelectedCategoryId] = useState<string | null>(

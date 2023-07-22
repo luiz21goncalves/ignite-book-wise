@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { useRating } from '@/queries/useRating'
+import { useRating } from '@/queries'
 import { Book } from '@/types'
 
 import { Rating } from '../Rating'
