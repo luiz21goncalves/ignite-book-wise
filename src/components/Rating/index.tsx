@@ -1,8 +1,11 @@
 import { Star, StarHalf, IconProps, Icon } from '@phosphor-icons/react'
 import * as Tooltip from '@radix-ui/react-tooltip'
 
+type Size = 'md' | 'lg'
+
 type RatingProps = {
   rate: number
+  size?: Size
 }
 
 type StarProps = {
@@ -13,10 +16,16 @@ type StarProps = {
 
 const MAX_STAR_RATING = 5
 
+const SIZES: Record<Size, number> = {
+  md: 16,
+  lg: 20,
+}
+
 export function Rating(props: RatingProps) {
-  const { rate } = props
+  const { rate, size = 'md' } = props
 
   const starts = makeStartArray(rate)
+  const convertedSize = SIZES[size]
 
   return (
     <Tooltip.Provider>
@@ -24,7 +33,7 @@ export function Rating(props: RatingProps) {
         <Tooltip.Trigger className="flex w-fit gap-1 text-purple-100">
           {starts.map((star) => {
             const Icon = star.icon
-            return <Icon key={star.id} {...star.props} />
+            return <Icon key={star.id} size={convertedSize} {...star.props} />
           })}
         </Tooltip.Trigger>
 
