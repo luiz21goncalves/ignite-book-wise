@@ -6,6 +6,7 @@ import * as Dialog from '@radix-ui/react-dialog'
 import { Book } from '@/types'
 
 import { BookDetail } from './BookDetail'
+import { BookDetailProvider } from './BookDetailContext'
 import { CommentList } from './CommentList'
 
 type BookDetailDialogProps = {
@@ -26,8 +27,10 @@ export function BookDetailDialog(props: BookDetailDialogProps) {
           <Dialog.Close className="fixed right-12 top-6 h-4 w-6 text-gray-400">
             <X weight="bold" size={24} />
           </Dialog.Close>
-          <BookDetail book={book} rate={rate} />
-          <CommentList bookId={book.id} />
+          <BookDetailProvider book={book} rate={rate}>
+            <BookDetail />
+            <CommentList />
+          </BookDetailProvider>
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>

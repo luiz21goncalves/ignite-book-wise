@@ -3,17 +3,12 @@ import Image from 'next/image'
 import { BookOpen, BookmarkSimple } from '@phosphor-icons/react'
 
 import { useBookCategories } from '@/queries'
-import { Book } from '@/types'
 
 import { Rating } from '../Rating'
+import { useBookDetail } from './BookDetailContext'
 
-type BookDetailProps = {
-  book: Book
-  rate: number
-}
-
-export function BookDetail(props: BookDetailProps) {
-  const { book, rate } = props
+export function BookDetail() {
+  const { book, rate, ratings } = useBookDetail()
 
   const { data: categories } = useBookCategories({ bookId: book.id })
 
@@ -43,7 +38,9 @@ export function BookDetail(props: BookDetailProps) {
 
           <div>
             <Rating rate={rate} size="lg" />
-            <span className="text-sm text-gray-400">3 avaliações</span>
+            <span className="text-sm text-gray-400">
+              {ratings.length} avaliações
+            </span>
           </div>
         </div>
       </div>

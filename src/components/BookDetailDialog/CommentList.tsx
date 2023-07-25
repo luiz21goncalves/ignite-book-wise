@@ -1,16 +1,19 @@
+import { useEffect } from 'react'
+
 import { useBookRatings } from '@/queries'
 
 import { Link } from '../Link'
+import { useBookDetail } from './BookDetailContext'
 import { Comment } from './Comment'
 
-type CommentListProps = {
-  bookId: string
-}
+export function CommentList() {
+  const { book, setRatings } = useBookDetail()
 
-export function CommentList(props: CommentListProps) {
-  const { bookId } = props
+  const { data: ratings } = useBookRatings({ bookId: book.id })
 
-  const { data: ratings } = useBookRatings({ bookId })
+  useEffect(() => {
+    setRatings(ratings ?? [])
+  }, [ratings, setRatings])
 
   return (
     <div className="flex flex-col gap-4">
