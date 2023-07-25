@@ -1,5 +1,6 @@
 export * from './useBook'
 export * from './useBookCategories'
+export * from './useBookRatings'
 export * from './useCategories'
 export * from './useFilteredBooks'
 export * from './useMostPopularBooks'
