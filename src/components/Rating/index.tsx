@@ -60,8 +60,6 @@ function makeStartArray(rate: number): StarProps[] {
       const isCompleted = difference > 0 || difference >= -0.6
       const isHalf = difference <= -0.4 && difference >= -0.6
 
-      console.log({ truncatedRate, position, difference })
-
       if (isHalf) {
         return {
           id: position,
