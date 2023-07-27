@@ -1,12 +1,18 @@
 import { InputHTMLAttributes } from 'react'
 
-type InputFieldProps = InputHTMLAttributes<HTMLInputElement>
+import { Slot } from '@radix-ui/react-slot'
+
+type InputFieldProps = InputHTMLAttributes<HTMLInputElement> & {
+  asChild?: boolean
+}
 
 export function InputField(props: InputFieldProps) {
-  const { ...attrs } = props
+  const { asChild = false, ...attrs } = props
+
+  const Component = asChild ? Slot : 'input'
 
   return (
-    <input
+    <Component
       {...attrs}
       className="h-5 w-full bg-transparent text-sm text-gray-200 caret-green-100 outline-none placeholder:text-gray-400"
     />
