@@ -3,10 +3,9 @@ import { useWatch } from 'react-hook-form'
 export function CommentLength() {
   const comment = useWatch<{ comment: string }>({
     name: 'comment',
-    defaultValue: '',
   })
 
-  const length = comment.length
+  const length = comment?.length ?? 0
 
   return (
     <span className="absolute bottom-4 right-1 text-xs text-gray-400">

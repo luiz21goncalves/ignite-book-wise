@@ -10,7 +10,7 @@ export function Button(props: ButtonProps) {
   return (
     <button
       {...attrs}
-      className="flex items-center justify-center rounded bg-gray-600 p-2 text-purple-100 transition-colors hover:bg-gray-500"
+      className="flex items-center justify-center rounded bg-gray-600 p-2 text-purple-100 transition-colors enabled:hover:bg-gray-500 disabled:opacity-50"
     >
       {children}
     </button>
