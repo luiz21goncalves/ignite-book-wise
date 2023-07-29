@@ -9,9 +9,9 @@ import { z } from 'zod'
 import { Avatar } from '../Avatar'
 import { Button } from '../Button'
 import { Input } from '../Input'
-import { Rating } from '../Rating'
 import { AssessButton } from './AssessButton'
 import { CommentLength } from './CommentLength'
+import { RatingInput } from './RatingInput'
 
 const assessFormSchema = z.object({
   comment: z.string().trim().min(1).max(450),
@@ -69,7 +69,7 @@ export function AssessForm() {
               <span className="w-full text-heading-xs font-bold text-gray-100">
                 {data?.user?.name}
               </span>
-              <Rating rate={4} />
+              <RatingInput />
             </div>
 
             <div className="relative pb-4 pt-6">
