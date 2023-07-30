@@ -1,7 +1,5 @@
-import Image from 'next/image'
 import { useFormContext } from 'react-hook-form'
 
-import { Star } from '@phosphor-icons/react'
 import * as Slider from '@radix-ui/react-slider'
 
 import { AssessFormData } from './AssessForm'
