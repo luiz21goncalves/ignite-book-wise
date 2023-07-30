@@ -1,15 +1,17 @@
-import { useSession } from 'next-auth/react'
 import { useState } from 'react'
-import { FormProvider, useForm } from 'react-hook-form'
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Check, X } from '@phosphor-icons/react'
 import { z } from 'zod'
 
+import { useRatingMutation, useCurrentUser } from '@/queries'
+
 import { Avatar } from '../Avatar'
 import { Button } from '../Button'
 import { Input } from '../Input'
 import { AssessButton } from './AssessButton'
+import { useBookDetail } from './BookDetailContext'
 import { CommentLength } from './CommentLength'
 import { RatingInput } from './RatingInput'
 
@@ -21,7 +23,12 @@ const assessFormSchema = z.object({
 export type AssessFormData = z.infer<typeof assessFormSchema>
 
 export function AssessForm() {
-  const { data } = useSession()
+  const [isShowingForm, setIsShowingForm] = useState(false)
+
+  const { data: user } = useCurrentUser()
+  const { book } = useBookDetail()
+  const { mutate, isLoading } = useRatingMutation()
+
   const methods = useForm<AssessFormData>({
     resolver: zodResolver(assessFormSchema),
     defaultValues: {
@@ -29,7 +36,6 @@ export function AssessForm() {
       rate: 0,
     },
   })
-  const [isShowingForm, setIsShowingForm] = useState(false)
 
   const {
     register,
@@ -37,7 +43,8 @@ export function AssessForm() {
     formState: { isValid },
     handleSubmit,
   } = methods
-  const isInvalid = !isValid
+
+  const isInvalid = !isValid || isLoading
 
   function handleToggleShowingForm() {
     setIsShowingForm((prevState) => !prevState)
@@ -46,6 +53,22 @@ export function AssessForm() {
   function handleResetForm() {
     reset()
     setIsShowingForm(false)
+  }
+
+  const handleCreateAssess: SubmitHandler<AssessFormData> = (data) => {
+    mutate(
+      {
+        bookId: book.id,
+        description: data.comment,
+        rate: data.rate,
+        userId: user?.id!,
+      },
+      {
+        onSuccess: () => {
+          handleResetForm()
+        },
+      },
+    )
   }
 
   return (
@@ -62,12 +85,12 @@ export function AssessForm() {
         <FormProvider {...methods}>
           <form
             className="rounded-lg bg-gray-700 p-6"
-            onSubmit={handleSubmit(console.log)}
+            onSubmit={handleSubmit(handleCreateAssess)}
           >
             <div className="flex items-center justify-between gap-4">
-              <Avatar src={data?.user?.image!} alt="" />
+              <Avatar src={user?.avatar_url!} alt="" />
               <span className="w-full text-heading-xs font-bold text-gray-100">
-                {data?.user?.name}
+                {user?.name}
               </span>
               <RatingInput />
             </div>
@@ -76,7 +99,7 @@ export function AssessForm() {
               <Input.Root>
                 <Input.Field asChild>
                   <textarea
-                    className="h-32 resize-none bg-transparent"
+                    className="h-36 resize-none bg-transparent"
                     maxLength={450}
                     {...register('comment')}
                   />

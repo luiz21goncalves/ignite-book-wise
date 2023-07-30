@@ -19,6 +19,9 @@ export default async function handler(
       where: {
         book_id: bookId as string,
       },
+      orderBy: {
+        created_at: 'desc',
+      },
     })
 
     return res.status(200).json({ ratings })
