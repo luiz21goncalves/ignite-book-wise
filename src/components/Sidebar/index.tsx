@@ -1,7 +1,7 @@
 import { useSession } from 'next-auth/react'
 import Image from 'next/image'
 
-import { Binoculars, ChartLineUp } from '@phosphor-icons/react'
+import { Binoculars, ChartLineUp, User } from '@phosphor-icons/react'
 
 import logo from '@/assets/logo.svg'
 
@@ -28,6 +28,11 @@ export function Sidebar() {
         <SidebarLink href="/dashboard/explore" icon={Binoculars}>
           Explorar
         </SidebarLink>
+        {hasAuthenticated && (
+          <SidebarLink href="/dashboard/profile" icon={User}>
+            Profile
+          </SidebarLink>
+        )}
       </nav>
       {hasAuthenticated ? (
         <SidebarSignOutLink avatarUrl={avatarUrl} name={name} />
