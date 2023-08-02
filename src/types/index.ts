@@ -30,3 +30,10 @@ export type Category = {
   id: string
   name: string
 }
+
+export type UserSummary = {
+  pages_read: number
+  total_authors: number
+  total_books: number
+  most_read_category: string
+}
