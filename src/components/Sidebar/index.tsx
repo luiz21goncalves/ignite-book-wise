@@ -22,7 +22,7 @@ export function Sidebar() {
       <Image src={logo} alt="" width={128} height={32} />
 
       <nav className="mt-24 flex flex-1 flex-col gap-4">
-        <SidebarLink href="/dashboard" icon={ChartLineUp}>
+        <SidebarLink href="/dashboard" shouldMatchExactHref icon={ChartLineUp}>
           Início
         </SidebarLink>
         <SidebarLink href="/dashboard/explore" icon={Binoculars}>

@@ -5,14 +5,36 @@ import { ElementType } from 'react'
 type SidebarLinkProps = LinkProps & {
   icon: ElementType
   children: string
+  shouldMatchExactHref?: boolean
 }
 
 export function SidebarLink(props: SidebarLinkProps) {
-  const { children, icon: Icon, href, ...attrs } = props
+  const {
+    children,
+    icon: Icon,
+    href,
+    shouldMatchExactHref = false,
+    ...attrs
+  } = props
 
   const router = useRouter()
 
-  const isActive = router.route === href
+  let isActive = false
+
+  if (
+    shouldMatchExactHref &&
+    (router.route === href || router.route === attrs.as)
+  ) {
+    isActive = true
+  }
+
+  if (
+    !shouldMatchExactHref &&
+    (router.route.startsWith(String(href)) ||
+      router.route.startsWith(String(attrs.as)))
+  ) {
+    isActive = true
+  }
 
   return (
     <Link
