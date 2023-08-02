@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 import dayjs from 'dayjs'
 
@@ -24,7 +25,9 @@ export function Comment(props: CommentProps) {
   return (
     <div className="flex flex-col gap-8 rounded-lg bg-gray-700 p-6">
       <div className="flex items-start justify-between gap-4">
-        <Avatar src={user?.avatar_url!} alt="" />
+        <Link href={`/dashboard/profile/${user?.id}`}>
+          <Avatar src={user?.avatar_url!} alt="" />
+        </Link>
         <div className="flex w-full flex-col">
           <span>{user?.name}</span>
           <time

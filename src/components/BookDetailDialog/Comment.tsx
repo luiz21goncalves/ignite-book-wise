@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import dayjs from 'dayjs'
 
 import { useUser } from '@/queries'
@@ -23,7 +25,9 @@ export function Comment(props: CommentProps) {
     <div className="flex flex-col gap-5 rounded-lg bg-gray-700 p-6">
       <div className="flex items-start justify-between">
         <div className="flex gap-4">
-          <Avatar src={user?.avatar_url!} alt="" />
+          <Link href={`/dashboard/profile/${user?.id}`}>
+            <Avatar src={user?.avatar_url!} alt="" />
+          </Link>
           <div className="flex flex-col">
             <span className="text-heading-xs font-bold text-gray-100">
               {user?.name}
