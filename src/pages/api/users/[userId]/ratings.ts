@@ -15,9 +15,21 @@ export default async function handler(
   const { userId } = req.query
 
   if (isGetMethod && userId) {
+    const q = req.query?.q as string | undefined
+
     const ratings = await prisma.rating.findMany({
       where: {
         user_id: userId as string,
+        OR: [
+          {
+            book: {
+              name: {
+                contains: q,
+                mode: 'insensitive',
+              },
+            },
+          },
+        ],
       },
       orderBy: {
         created_at: 'desc',
